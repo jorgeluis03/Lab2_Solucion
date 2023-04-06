@@ -11,43 +11,47 @@
 <nav class="navbar bg-body-tertiary justify-content-end">
     <ul class="nav">
         <li class="nav-item">
-            <a class="nav-link active" aria-current="page" th:href="@{'/listaIntegrantes'}">Integrantes</a>
+            <a class="nav-link active" aria-current="page" th:href="@{'/integrantes/listar'}">Integrantes</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" th:href="@{'/listaProveedores'}">Proveedores</a>
+            <a class="nav-link" th:href="@{'/proveedores/listar'}">Proveedores</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" th:href="@{'/listaArtistas'}">Artista</a>
+            <a class="nav-link" th:href="@{'/artista/listar'}">Artista</a>
         </li>
 
     </ul>
 </nav>
 <br>
 <div class = "container">
-    <h1 class="container text-center">LISTA DE ARTISTAS</h1>
-    <a th:href="@{'/nuevoArtista'}">
-        <button type="button" class="btn btn-primary">Nuevo Artista</button>
+    <h1 class="container text-center">LISTA DE INTEGRANTES</h1>
+    <a th:href="@{'/integrantes/FormNuevo'}">
+        <button type="button" class="btn btn-primary">Nuevo Integrante</button>
     </a>
     <br>
     <table class="table">
         <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">Fundacion</th>
-            <th scope="col">Sede</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Edad</th>
+            <th scope="col">Años exp</th>
+            <th scope="col">Rol</th>
+            <th scope="col">ID Artista</th>
         </tr>
         <thead>
         <tbody>
 
-        <tr th:each="distribuidora, indice : ${listaDistribuidores}">
+        <tr th:each="integrante, indice : ${listaIntegrantes}">
 
             <td th:text = "${indice.index +1}"></td>
-            <td th:text = "${distribuidora.nombre}"></td>
-            <td th:text = "${distribuidora.fundacion}"></td>
-            <td th:text = "${distribuidora.sede}"></td>
-            <td> <a class="btn btn-info" th:href="@{'/distribuidoras/editar?id='+${distribuidora.iddistribuidora}}"> Editar</a> </td>
-            <td> <a class="btn btn-danger" th:href="@{'/distribuidoras/borrar?id='+${distribuidora.iddistribuidora}}" > Borrar</a> </td>
+            <td th:text = "${integrante.nombre}"></td>
+            <td th:text = "${integrante.edad}"></td>
+            <td th:text = "${integrante.anhiosexp}"></td>
+            <td th:text = "${integrante.rol}"></td>
+            <td th:text = "${integrante.idartista}"></td>
+            <td> <a class="btn btn-info" th:href="@{'/integrantes/editar?id='+${integrante.idintegrantes}}"> Editar</a> </td>
+            <td> <a class="btn btn-danger" th:href="@{'/integrantes/borrar?id='+${integrante.idintegrantes}}" > Borrar</a> </td>
 
         </tr>
 
