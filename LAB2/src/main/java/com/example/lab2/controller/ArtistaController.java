@@ -22,7 +22,7 @@ public class ArtistaController {
 
     public String listaDistribuidoras(Model model){
         List<Artista> listaDistribuidores = artistaRespository.findAll();
-        model.addAttribute("listaDistribuidores", listaDistribuidores);
+        model.addAttribute("lista",listaDistribuidores);
         return "artista/listaArtistas";
     }
 
