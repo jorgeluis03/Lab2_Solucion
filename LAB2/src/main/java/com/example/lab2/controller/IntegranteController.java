@@ -38,7 +38,7 @@ public class IntegranteController {
         return "redirect:/integrantes/listar";
 
     }
-    
+
 
 
 
