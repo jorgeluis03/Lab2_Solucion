@@ -11,43 +11,43 @@
 <nav class="navbar bg-body-tertiary justify-content-end">
     <ul class="nav">
         <li class="nav-item">
-            <a class="nav-link active" aria-current="page" th:href="@{'/listaIntegrantes'}">Integrantes</a>
+            <a class="nav-link active" aria-current="page" th:href="@{'/integrantes/listar'}">Integrantes</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" th:href="@{'/listaProveedores'}">Proveedores</a>
+            <a class="nav-link" th:href="@{'/proveedores/listar'}">Proveedores</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" th:href="@{'/listaArtistas'}">Artista</a>
+            <a class="nav-link" th:href="@{'/artistas/listar'}">Artista</a>
         </li>
 
     </ul>
 </nav>
 <br>
 <div class = "container">
-    <h1 class="container text-center">LISTA DE ARTISTAS</h1>
-    <a th:href="@{'/nuevoArtista'}">
-        <button type="button" class="btn btn-primary">Nuevo Artista</button>
+    <h1 class="container text-center">LISTA DE CONCIERTO</h1>
+    <a th:href="@{'/conciertos/nuevo'}">
+        <button type="button" class="btn btn-primary">Nuevo Concierto</button>
     </a>
     <br>
     <table class="table">
         <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">Fundacion</th>
-            <th scope="col">Sede</th>
+            <th scope="col">Fecha de concierto</th>
+            <th scope="col">ID Proveedor</th>
+            <th scope="col">ID Artista</th>
         </tr>
         <thead>
         <tbody>
 
-        <tr th:each="distribuidora, indice : ${listaDistribuidores}">
+        <tr th:each="concierto, indice : ${listaConciertos}">
 
             <td th:text = "${indice.index +1}"></td>
-            <td th:text = "${distribuidora.nombre}"></td>
-            <td th:text = "${distribuidora.fundacion}"></td>
-            <td th:text = "${distribuidora.sede}"></td>
-            <td> <a class="btn btn-info" th:href="@{'/distribuidoras/editar?id='+${distribuidora.iddistribuidora}}"> Editar</a> </td>
-            <td> <a class="btn btn-danger" th:href="@{'/distribuidoras/borrar?id='+${distribuidora.iddistribuidora}}" > Borrar</a> </td>
+            <td th:text = "${concierto.fechaconcierto}"></td>
+            <td th:text = "${concierto.idproveedores}"></td>
+            <td th:text = "${concierto.idartista}"></td>
+            <td> <a class="btn btn-info" th:href="@{'/conciertos/editar?id='+${concierto.idconcierto}}"> Editar</a> </td>
+            <td> <a class="btn btn-danger" th:href="@{'/conciertos/borrar?id='+${concierto.idconcierto}}" > Borrar</a> </td>
 
         </tr>
 
